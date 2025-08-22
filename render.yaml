@@ -1,0 +1,13 @@
+services:
+  # This defines your FastAPI web service
+  - type: web
+    name: medi-verify-api
+    env: python
+    plan: free # Specify the free instance type
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"
+    systemDependencies:
+      - name: libzbar0
+    envVars:
+      - key: API_KEY
+        sync: false # Set this to false so you can set the value in the dashboard
