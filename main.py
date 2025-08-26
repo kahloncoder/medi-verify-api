@@ -79,9 +79,9 @@ def decode_with_gemini(frame, api_key):
         }
 
         url = (
-            f"https://generativelanguage.googleapis.com/v1beta/models/"
-            f"gemini-pro-vision:generateContent?key={api_key}" # Using gemini-pro-vision as it's a stable model
-        )
+          f"https://generativelanguage.googleapis.com/v1beta/models/"
+          f"gemini-1.5-flash-latest:generateContent?key={api_key}"
+      )
 
         response = requests.post(url, headers=headers, data=json.dumps(data), timeout=30)
         response.raise_for_status()
